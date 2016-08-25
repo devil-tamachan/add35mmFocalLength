@@ -6,6 +6,12 @@ add FocalLengthIn35mmFormat to jpg's EXIF
 
 #### ダウンロード (Windows GUI版のみ、MacOSX/Linuxはソースのみ)
  - [https://github.com/devil-tamachan/add35mmFocalLength/releases](https://github.com/devil-tamachan/add35mmFocalLength/releases)
+
+#### 既知の問題（計算しない/おかしな値が設定されてしまうケース）:
+ - カメラが２つ付いている（バックカメラとフェイスカメラなど）場合、バックカメラと仮定して計算します。フェイスカメラの場合おかしな値になる場合があります。(例: 古いiOSバージョンのiPhone4、4S以降は区別した製品名が入っているので問題ありませんが...)
+ - カメラ製品名が同じ製品が大量にあり製品名が特定できない　（例：SONY CYBERSHOT、iPod touchなど）
+ - 製品名にバージョンが入っている製品
+
  
  
 #### 使い方 (Windows)：
