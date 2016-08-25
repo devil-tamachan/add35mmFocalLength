@@ -13,6 +13,15 @@ add FocalLengthIn35mmFormat to jpg's EXIF
  - ソースをダウンロードしてmake
  - ./add35mmFocalLength ../../jpeg/*.jpg みたいな感じで使えます
 
+#### ファイルの説明:
+ - add35mmFocalLength.c プログラム本体
+ - exif.c/.h exifライブラリ
+ - initdb.c jpgからデータベースのひな形を作るプログラム
+ - sample_main.c exifコマンドのソース。exifコマンドは関連exifを表示するコマンド
+ - imgui-1.49/examples/sdl_opengl_example カメラデータ打ち込み用ツール
+ - WinGUI/ Windows用GUIソース
+
+
 ### Special Thanks!
 #### EXIF sample:
 * https://github.com/openMVG/CameraSensorSizeDatabase (MIT license) Copyright (c) 2014 Camera Sensor Size Database authors.
