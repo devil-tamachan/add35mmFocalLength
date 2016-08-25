@@ -3,14 +3,16 @@ add FocalLengthIn35mmFormat to jpg's EXIF
 
 35mm換算 焦点距離を計算してjpegのEXIFへ追加します。カメラのメーカー名、製品名、焦点距離が含まれている＋データベースにセンサーサイズが登録されている場合、jpgのEXIFへ35mm換算 焦点距離を追加します。
 
+
+#### ダウンロード (Windows GUI版のみ、MacOSX/Linuxはソースのみ)
+ - [https://github.com/devil-tamachan/add35mmFocalLength/releases](https://github.com/devil-tamachan/add35mmFocalLength/releases)
+ 
+ 
 #### 使い方 (Windows)：
  1. jpgやjpgの入ったフォルダをコピー貼り付けなどでバックアップして下さい。万が一写真が破損しても戻せません。必ずバックアップしてください。
  2. 起動した画面にフォルダやjpgをドラッグアンドドロップ
  3. 変換に成功するとOK表示がでます。変換できない/既に35mm換算焦点距離がある/失敗したなどの場合、!表示がでます。
 
-
-#### ダウンロード (Windows GUI版のみ、MacOSX/Linuxはソースのみ)
- - [https://github.com/devil-tamachan/add35mmFocalLength/releases](https://github.com/devil-tamachan/add35mmFocalLength/releases)
 
 #### 使い方 (Mac OSX, Linux[Linuxは動作未確認。動くはず...]):
  1. ソースをダウンロードしてmake
