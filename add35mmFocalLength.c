@@ -143,10 +143,10 @@ int procImage(const char *srcJpgFileName, sqlite3 *pDb, sqlite3_stmt *pSearchDia
     if (tag) {
         if (!tag->error) {
 			printf("[%s] ", tag->byteData);
-			pMaker = (char*)malloc(strlen(tag->byteData)+2);
+			pMaker = (char*)malloc(strlen((const char*)tag->byteData)+2);
 			if(pMaker)
 			{
-				strcpy(pMaker, tag->byteData);
+				strcpy(pMaker, (const char*)tag->byteData);
 				bCat = 1;
 			}
         }
@@ -163,10 +163,10 @@ int procImage(const char *srcJpgFileName, sqlite3 *pDb, sqlite3_stmt *pSearchDia
     if (tag) {
         if (!tag->error) {
 			printf("[%s] ", tag->byteData);
-			pModel = (char*)malloc(strlen(tag->byteData)+2);
+			pModel = (char*)malloc(strlen((const char*)tag->byteData)+2);
 			if(pMaker)
 			{
-				strcpy(pModel, tag->byteData);
+				strcpy(pModel, (const char*)tag->byteData);
 				bCat = 1;
 			}
         }
@@ -239,7 +239,11 @@ int procImage(const char *srcJpgFileName, sqlite3 *pDb, sqlite3_stmt *pSearchDia
 	printf("[35mmFocalLength: %d]\n", i35mmFocalLenght);
 	
 	char *tmpname = NULL;
+#ifdef _MSC_VER
+  if((tmpname=_tempnam(NULL, "a35"))!=NULL)
+#else
 	if((tmpname=tmpnam(NULL)) != NULL)
+#endif
 	{
 		int r = updateTagData(srcJpgFileName, tmpname, i35mmFocalLenght);
 		if(r==1)
@@ -259,6 +263,11 @@ int procImage(const char *srcJpgFileName, sqlite3 *pDb, sqlite3_stmt *pSearchDia
 		printf("tmpnam error\n");
 		goto procImage_ERR1;
 	}
+	if(pMaker)free(pMaker);
+	if(pModel)free(pModel);
+    freeIfdTableArray(ifdArray);
+	
+	return 1;
 
 	// free IFD table array
   procImage_ERR1:
@@ -266,7 +275,7 @@ int procImage(const char *srcJpgFileName, sqlite3 *pDb, sqlite3_stmt *pSearchDia
 	if(pModel)free(pModel);
     freeIfdTableArray(ifdArray);
 	
-	return 1;
+	return -1;
 }
 
 #ifndef ADD35MMFOCAL_NOMAIN
