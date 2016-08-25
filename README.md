@@ -9,6 +9,9 @@ add FocalLengthIn35mmFormat to jpg's EXIF
  3. 変換に成功するとOK表示がでます。変換できない/既に35mm換算焦点距離がある/失敗したなどの場合、!表示がでます。
 
 
+#### ダウンロード (Windows GUI版のみ、MacOSX/Linuxはソースのみ)
+ - [https://github.com/devil-tamachan/add35mmFocalLength/releases](https://github.com/devil-tamachan/add35mmFocalLength/releases)
+
 #### 使い方 (Mac OSX, Linux[Linuxは動作未確認。動くはず...]):
  1. ソースをダウンロードしてmake
  2. ./add35mmFocalLength ../../jpeg/*.jpg みたいな感じで使えます
